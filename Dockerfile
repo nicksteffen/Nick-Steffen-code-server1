@@ -26,6 +26,10 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
 # RUN code-server --install-extension esbenp.prettier-vscode
 
+RUN mkdir -p /home/coder/.code-server/extensions
+RUN curl - JL https://github.com/encounterplus/module-packer/releases/download/1.0.47/encounterplus-markdown-1.0.47.vsix | bsdtar -xvf - extension
+RUN mv extension /home/coder/.code-server/extensions/encounter-plus-markdown-1.0.47
+
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
 
@@ -41,6 +45,3 @@ ENV PORT=8080
 COPY deploy-container/entrypoint.sh /usr/bin/deploy-container-entrypoint.sh
 ENTRYPOINT ["/usr/bin/deploy-container-entrypoint.sh"]
 
-RUN mkdir -p /home/coder/.code-server/extensions
-RUN curl - JL https://github.com/encounterplus/module-packer/releases/download/1.0.47/encounterplus-markdown-1.0.47.vsix | bsdtar -xvf - extension
-RUN mv extension /home/coder/.code-server/extensions/encounter-plus-markdown-1.0.47
