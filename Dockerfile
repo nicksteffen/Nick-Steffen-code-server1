@@ -40,3 +40,7 @@ ENV PORT=8080
 # Use our custom entrypoint script first
 COPY deploy-container/entrypoint.sh /usr/bin/deploy-container-entrypoint.sh
 ENTRYPOINT ["/usr/bin/deploy-container-entrypoint.sh"]
+
+RUN mkdir -p /home/coder/.code-server/extensions
+RUN curl - JL https://github.com/encounterplus/module-packer/releases/download/1.0.47/encounterplus-markdown-1.0.47.vsix | bsdtar -xvf - extension
+RUN mv extension /home/coder/.code-server/extensions/encounter-plus-markdown-1.0.47
