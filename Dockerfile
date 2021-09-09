@@ -27,7 +27,7 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # RUN code-server --install-extension esbenp.prettier-vscode
 
 RUN mkdir -p /home/coder/.code-server/extensions
-RUN curl - JL https://github.com/encounterplus/module-packer/releases/download/1.0.47/encounterplus-markdown-1.0.47.vsix | bsdtar -xvf - extension
+RUN curl -JL https://github.com/encounterplus/module-packer/releases/download/1.0.47/encounterplus-markdown-1.0.47.vsix | bsdtar -xvf - extension
 #RUN mv extension /home/coder/.code-server/extensions/encounter-plus-markdown-1.0.47
 
 # Install apt packages:
