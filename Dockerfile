@@ -32,7 +32,7 @@ RUN curl -JL https://github.com/encounterplus/module-packer/releases/download/1.
 RUN code-server --install-extension /home/coder/module-packer.vsix
 
 
-#code-server --install-extension ms-python.python
+RUN code-server --install-extension ms-python.python
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
 
