@@ -29,10 +29,10 @@ RUN sudo chown -R coder:coder /home/coder/.local
 RUN mkdir -p /home/coder/.code-server/extensions
 RUN curl -JL https://github.com/encounterplus/module-packer/releases/download/1.0.47/encounterplus-markdown-1.0.47.vsix --output /home/coder/module-packer.vsix
 #RUN mv extension /home/coder/.code-server/extensions/encounter-plus-markdown-1.0.47
-code-server --install-extension /home/coder/module-packer.vsix
+RUN code-server --install-extension /home/coder/module-packer.vsix
 
 
-code-server --install-extension ms-python.python
+#code-server --install-extension ms-python.python
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
 
